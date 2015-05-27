@@ -1,1 +1,67 @@
-
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Marvel App</title>
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+  <link rel="stylesheet" href="css.css">
+  <!--<link rel="stylesheet" href="css/app.css">-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=RobotoDraft:300,400,500,700,400italic">
+  <meta name="viewport" content="initial-scale=1" />
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <!--<script src="bower_components/angular-material/angular-material.js"></script>-->
+  <!--<script src="bower_components/angular-material/angular-material-mocks.js"></script>-->
+ 
+  
+  <script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js"></script>
+  <script src="controller.js"></script>
+  
+</head>
+<body>
+<!--{{phones.items}}-->
+<!--<ul class="phones">-->
+<!--  <li ng-repeat="phone in phones.data.results">-->
+<!--    <span>{{phone.name}}</span>-->
+<!--    <img src="{{phone.thumbnail.path + '/portrait_small.' + phone.thumbnail.extension}}" />-->
+<!--  </li>-->
+<!--</ul>-->
+  <div ng-app='myApp' ng-controller='DemoController' layout="row" layout-align="center center">
+    <div infinite-scroll='reddit.nextPage()' infinite-scroll-disabled='reddit.busy' infinite-scroll-distance='1'>
+      <md-content layout-padding>
+        <!--<div ng-repeat='item in reddit.items'>-->
+          <!--<span class='score'>{{item.description}}</span>-->
+          <md-card ng-repeat='item in reddit.items'>
+            <!--standard_fantastic-->
+            <img ng-src="{{item.thumbnail.path + '.' + item.thumbnail.extension}}" class="md-card-image" alt="IMAGE {{item.name}}">
+            <md-card-content>
+              <h2 class="md-title">{{item.name}}</h2>
+              <p>{{item.description}}</p>
+              <p>{{reddit.copyright.attributionText}}</p>
+            </md-card-content>
+            <!--<div class="md-actions" layout="row" layout-align="end center">-->
+            <!--  <md-button>Action 1</md-button>-->
+            <!--  <md-button>Action 2</md-button>-->
+            <!--</div>-->
+          </md-card>
+          
+          <!--<span class='title'>-->
+          <!--  <a ng-href='{{item.url}}' target='_blank'>{{item.thumbnail.path}}</a>-->
+          <!--</span>-->
+          <!--<small>by {{item.author}} --->
+          <!--  <a ng-href='http://reddit.com{{item.permalink}}' target='_blank'>{{item.num_comments}} comments</a>-->
+          <!--</small>-->
+          <div style='clear: both;'></div>
+        <!--</div>-->
+        <div ng-show='reddit.busy' layout="row" layout-align="center center"><md-progress-circular class="md-hue-2" md-mode="indeterminate"></md-progress-circular></div>
+      </md-content>
+    </div>
+  </div>
+  <!-- Angular Material Dependencies -->
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.9.0/angular-material.min.js"></script>
+</body>
+</html>
