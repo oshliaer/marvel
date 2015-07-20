@@ -18,6 +18,7 @@ myApp.controller('DemoController', function($scope, Reddit) {
 });
 
 // Reddit constructor function to encapsulate HTTP and pagination logic
+// http://binarymuse.github.io/ngInfiniteScroll/demo_async.html
 myApp.factory('Reddit', function($http) {
   var Reddit = function() {
     this.copyright = {};
